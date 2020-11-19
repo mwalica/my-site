@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import { Link as LinkR, useLocation } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
 
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faImages } from '@fortawesome/free-regular-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+
 import Background from '../assets/hero.svg';
 
 const Navigation = () => {
@@ -15,25 +20,25 @@ const Navigation = () => {
     <Wrapper navbar={pathname !== '/' ? true : false}>
       <NavMenu>
         <NavItem>
-          <NavLinkr to="/">Home</NavLinkr>
+          <NavLinkr to="/"><FontAwesomeIcon className="icon" icon={faHome} /><span>Home</span></NavLinkr>
         </NavItem>
         {pathname === '/' && (
           <>
             <NavItem>
               <NavLinks to="about" smooth={true} duration={600}>
-                O mnie
+              <FontAwesomeIcon className="icon" icon={faAddressCard} /> <span>O mnie</span>
               </NavLinks>
             </NavItem>
             <NavItem>
               <NavLinks to="photostock" smooth={true} duration={600}>
-                Photostock
+              <FontAwesomeIcon className="icon" icon={faImages} /><span>Photostock</span>
               </NavLinks>
             </NavItem>
           </>
         )}
 
         <NavItem>
-          <NavLinkr to="/contact">Kontakt</NavLinkr>
+          <NavLinkr to="/contact"><FontAwesomeIcon className="icon" icon={faEnvelope} /><span>Kontakt</span></NavLinkr>
         </NavItem>
       </NavMenu>
     </Wrapper>
@@ -65,6 +70,18 @@ display: flex;
 `;
 const NavItem = styled.li`
   padding: 1em 1em;
+  .icon {
+    font-size: 1.4rem;
+    @media(min-width: 768px) {
+      display: none;
+    }
+  }
+  span {
+    display: none;
+    @media(min-width: 769px) {
+      display: inline;
+    }
+  }
 `;
 const NavLinks = styled(LinkS)`
   padding: 0.5em 1em;
