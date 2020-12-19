@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link as LinkR, useLocation } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
@@ -20,25 +19,33 @@ const Navigation = () => {
     <Wrapper navbar={pathname !== '/' ? true : false}>
       <NavMenu>
         <NavItem>
-          <NavLinkr to="/"><FontAwesomeIcon className="icon" icon={faHome} /><span>Home</span></NavLinkr>
+          <NavLinkr to="/">
+            <FontAwesomeIcon className="icon" icon={faHome} />
+            <span>Home</span>
+          </NavLinkr>
         </NavItem>
         {pathname === '/' && (
           <>
             <NavItem>
               <NavLinks to="about" smooth={true} duration={600}>
-              <FontAwesomeIcon className="icon" icon={faAddressCard} /> <span>O mnie</span>
+                <FontAwesomeIcon className="icon" icon={faAddressCard} />{' '}
+                <span>O mnie</span>
               </NavLinks>
             </NavItem>
             <NavItem>
               <NavLinks to="photostock" smooth={true} duration={600}>
-              <FontAwesomeIcon className="icon" icon={faImages} /><span>Photostock</span>
+                <FontAwesomeIcon className="icon" icon={faImages} />
+                <span>Photostock</span>
               </NavLinks>
             </NavItem>
           </>
         )}
 
         <NavItem>
-          <NavLinkr to="/contact"><FontAwesomeIcon className="icon" icon={faEnvelope} /><span>Kontakt</span></NavLinkr>
+          <NavLinkr to="/contact">
+            <FontAwesomeIcon className="icon" icon={faEnvelope} />
+            <span>Kontakt</span>
+          </NavLinkr>
         </NavItem>
       </NavMenu>
     </Wrapper>
@@ -59,9 +66,9 @@ const Wrapper = styled.nav`
 `;
 
 const NavMenu = styled.ul`
-display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   font-size: 1rem;
   text-transform: uppercase;
@@ -72,13 +79,13 @@ const NavItem = styled.li`
   padding: 1em 1em;
   .icon {
     font-size: 1.4rem;
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
       display: none;
     }
   }
   span {
     display: none;
-    @media(min-width: 769px) {
+    @media (min-width: 769px) {
       display: inline;
     }
   }
