@@ -1,37 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-
-import Camera2 from '../assets/camera2.svg';
 
 import AboutMe from '../assets/omnie1.jpg';
 
 const About = () => {
   return (
     <Wrapper id="about">
-      <Camera
-        src={Camera2}
-        animate={{
-          x: [0, -100, -200, 0],
-          y: [0, 100, -100, 0],
-          rotate: [0, 90, 0],
-        }}
-        transition={{
-          y: {
-            duration: 20,
-            yoyo: Infinity,
-          },
-          x: {
-            duration: 20,
-            yoyo: Infinity,
-          },
-          rotate: {
-            duration: 15,
-            yoyo: Infinity,
-          },
-        }}
-      />
       <MyContent>
         <Header>
           <h3>O mnie</h3>
@@ -52,13 +27,13 @@ const About = () => {
               Życiowe pasje <span>muzyka i fotografia</span>
             </h4>
             <h6>75 rocznik ubiegłego wieku</h6>
-            <p>
-              Jestem flecistą i nauczycielem informatyki. Lubię jeździć na
-              rowerze i wędrować z moimi córkami po lesie. Lubię fotografować
-              przyrodę - szczególnie pszczoły, kwiaty, nadmorskie krajobrazy
-              oraz wszelkiego rodzaju detale. Interesuję się technologiami
-              związanymi z FrontEnd (JavaScript, React, VueJs)
-            </p>
+            <List>
+              <li><span>&#x21AA;</span> Jestem flecistą i nauczycielem informatyki</li>
+              <li><span>&#x21AA;</span> Lubię jeździć na rowerze i wędrować z moimi córkami po lesie</li> 
+              <li><span>&#x21AA;</span> Lubię fotografować
+              przyrodę - szczególnie pszczoły, kwiaty, nadmorskie krajobrazy oraz wszelkiego rodzaju detale.</li> 
+              <li><span>&#x21AA;</span> Interesuję się technologiami związanymi z FrontEnd (JavaScript, React, VueJs)</li>
+            </List>
 
             <Button to="/contact">Wyślij wiadomość</Button>
           </Description>
@@ -71,18 +46,6 @@ const About = () => {
 const Wrapper = styled.section`
   padding: 2em 0;
   position: relative;
-`;
-
-const Camera = styled(motion.img)`
-  display: none;
-  opacity: 0.9;
-  width: 180px;
-  position: absolute;
-  right: 70px;
-  top: 400px;
-  @media (min-width: 1440px) {
-    display: block;
-  }
 `;
 
 const MyContent = styled.article`
@@ -174,6 +137,18 @@ const Description = styled.div`
   p {
     line-height: 1.8;
   }
+`;
+
+const List = styled.div`
+list-style: none;
+li {
+  margin-bottom: 4px;
+  span {
+  font-size: 1.4rem;
+  color: ${({theme}) => theme.secondary}
+}
+}
+
 `;
 
 const Button = styled(Link)`

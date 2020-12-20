@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link as LinkR, useLocation } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
